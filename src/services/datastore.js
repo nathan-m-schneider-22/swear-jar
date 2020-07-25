@@ -28,5 +28,10 @@ export function deleteNote(id) {
   firebase.database().ref('notes').child(id).remove();
 }
 export function pushChanges(id, note) {
+  console.log('PUSHING CHANGES ', note);
   firebase.database().ref('notes').child(id).set(note);
+}
+export function focus(id, zIndex) {
+  console.log('FOCUSING ', id, zIndex);
+  firebase.database().ref('notes').child(id).update({ zIndex });
 }

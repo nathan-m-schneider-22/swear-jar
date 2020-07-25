@@ -11,6 +11,7 @@ h1,h2,h3,h4,h5,p{
 }
 .note{
   border-style: dotted;
+  background-color: rgb(135, 216, 208);
 }
 .noteBody{
   font-size: 12pt;
@@ -27,8 +28,10 @@ h1,h2,h3,h4,h5,p{
 }
 
 .react-draggable{
+  position: absolute;
   border-style: dotted;
   max-width: 30em;
+  min-width: 20em;
 
 }
 #add-bar{

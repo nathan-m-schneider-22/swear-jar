@@ -34,7 +34,7 @@ class Note extends Component {
       return (
         <div className="note">
           <h1 className="note-title">{this.props.note.title}</h1>
-          <div className="handle">Drag from here</div>
+          {/* <div className="handle">Drag from here</div> */}
           <button className="note-delete" onClick={() => this.props.delete(this.props.id)} type="button">Delete</button>
           <button className="note-edit" onClick={this.toggleEditing} type="button">Edit</button>
           {/* eslint-disable-next-line react/no-danger */}
@@ -45,7 +45,7 @@ class Note extends Component {
       return (
         <div className="note">
           <input className="note-title" type="text" onChange={this.editTitle} value={this.props.note.title} />
-          <div className="handle">Drag from here</div>
+          {/* <div className="handle">Drag from here</div> */}
           <button className="note-delete" onClick={() => this.props.delete(this.props.id)} type="button">Delete</button>
           <button className="note-edit" onClick={this.toggleEditing} type="button">Save</button>
           {/* eslint-disable-next-line react/no-danger */}
@@ -60,11 +60,14 @@ class Note extends Component {
     const jsx = this.renderEditing();
     return (
       <Draggable
-        handle=".handle"
+        // handle=".handle"
+        defaultPosition={{ x: 20, y: 20 }}
+        cancel=".note input, .note button, .note textarea"
         position={{
-          x: this.props.note.x, y: this.props.note.y, width: 200, height: 200,
+          x: this.props.note.x, y: this.props.note.y, width: 0, height: 0,
         }}
         onDrag={this.onDrag}
+        onStart={() => this.props.focus(this.props.id)}
         onStop={() => this.props.pushChanges(this.props.id)}
       >
         {jsx}
