@@ -1,14 +1,49 @@
 body, html {
-    font-family: "Roboto", sans-serif;
-    background: linear-gradient(to bottom, #87e0fd 0%,#53cbf1 40%,#05abe0 100%);
+    font-family: "Merriweather", sans-serif;
+    margin:0px;
     height: 100%;
   }
-  
-.logo {
-  background-image: url('img/sky.jpg');
-  width: 100px;
-  height: 100px;
-  background-repeat: no-repeat;
-  background-size: contain;
+button{
+  font-family: "Merriweather", sans-serif;
 }
-  
+h1,h2,h3,h4,h5,p{
+  margin:0px;
+}
+.note{
+  border-style: dotted;
+}
+.noteBody{
+  font-size: 12pt;
+  font-family: "Merriweather", sans-serif;
+  border-style: dotted;
+  width: 90%;
+  min-height: 300px;
+  display: block;
+  margin: auto;
+
+}.note-title{
+  font-family: "Merriweather", sans-serif;
+  font-size: 20pt;
+}
+
+.react-draggable{
+  border-style: dotted;
+  max-width: 30em;
+
+}
+#add-bar{
+  background-color: turquoise;
+  padding:20px;
+  display: flex;
+  justify-content: center;
+}
+#add-text{
+  margin:10px;
+  width: 200px;
+  height:50%;
+
+}
+#add-button{
+  margin:10px;
+
+}
