@@ -32,31 +32,34 @@ class Note extends Component {
   }
 
   renderEditing = () => {
+    // dangerouslySetInnerHTML puts the site at risk from XSS attacks
+    // The XSS library allows me sanitze your inputs to prevent people from emedding
+    // dangerous code in my site!
+    const dirtyTitle = this.props.note.title;
+    const cleanedTitle = xss.filterXSS(dirtyTitle);
+    const dirtyContent = this.props.note.text;
+    const cleanedContent = xss.filterXSS(dirtyContent);
+
     if (!this.state.isEditing) {
-      // dangerouslySetInnerHTML puts the site at risk from XSS attacks
-      // The XSS library allows me sanitze your inputs to prevent people from emedding
-      // dangerous code in my site!
-      const dirty = this.props.note.text;
-      const cleaned = xss.filterXSS(dirty);
       return (
         <div className="note">
-          <h1 className="note-title">{this.props.note.title}</h1>
+          <h1 className="note-title">{cleanedTitle}</h1>
           {/* <div className="handle">Drag from here</div> */}
           <button className="note-delete" onClick={() => this.props.delete(this.props.id)} type="button"> <i className="fa fa-trash" /></button>
           <button className="note-edit" onClick={this.toggleEditing} type="button"> <i className="fa fa-edit" /> </button>
           {/* eslint-disable-next-line react/no-danger */}
-          <div className="note-body" dangerouslySetInnerHTML={{ __html: marked(cleaned || '') }} />
+          <div className="note-body" dangerouslySetInnerHTML={{ __html: marked(cleanedContent || '') }} />
         </div>
       );
     } else {
       return (
         <div className="note">
-          <input className="note-title" type="text" onChange={this.editTitle} value={this.props.note.title} />
+          <input className="note-title" type="text" onChange={this.editTitle} value={dirtyTitle} />
           {/* <div className="handle">Drag from here</div> */}
           <button className="note-delete" onClick={() => this.props.delete(this.props.id)} type="button"> <i className="fa fa-trash" /></button>
           <button className="note-edit" onClick={this.toggleEditing} type="button"> <i className="fa fa-save" /></button>
           {/* eslint-disable-next-line react/no-danger */}
-          <textarea className="note-body" type="text" onChange={this.editContent} value={this.props.note.text} />
+          <textarea className="note-body" type="text" onChange={this.editContent} value={cleanedContent} />
         </div>
 
       );
