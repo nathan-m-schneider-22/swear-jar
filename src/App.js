@@ -24,10 +24,10 @@ class App extends Component {
     });
   }
 
-  newNote = (text) => {
+  newNote = (title) => {
     const newNote = {
-      title: 'No Title',
-      text,
+      title,
+      text: '',
       x: 0,
       y: 0,
       zIndex: 0,

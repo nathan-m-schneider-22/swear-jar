@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Draggable from 'react-draggable'; // The default
 import marked from 'marked';
+// import TextareaAutosize from 'react-textarea-autosize';
 
 class Note extends Component {
   constructor(props) {
@@ -35,10 +36,10 @@ class Note extends Component {
         <div className="note">
           <h1 className="note-title">{this.props.note.title}</h1>
           {/* <div className="handle">Drag from here</div> */}
-          <button className="note-delete" onClick={() => this.props.delete(this.props.id)} type="button">Delete</button>
-          <button className="note-edit" onClick={this.toggleEditing} type="button">Edit</button>
+          <button className="note-delete" onClick={() => this.props.delete(this.props.id)} type="button"> <i className="fa fa-trash" /></button>
+          <button className="note-edit" onClick={this.toggleEditing} type="button"> <i className="fa fa-edit" /> </button>
           {/* eslint-disable-next-line react/no-danger */}
-          <div className="noteBody" dangerouslySetInnerHTML={{ __html: marked(this.props.note.text || '') }} />
+          <div className="note-body" dangerouslySetInnerHTML={{ __html: marked(this.props.note.text || '') }} />
         </div>
       );
     } else {
@@ -46,10 +47,10 @@ class Note extends Component {
         <div className="note">
           <input className="note-title" type="text" onChange={this.editTitle} value={this.props.note.title} />
           {/* <div className="handle">Drag from here</div> */}
-          <button className="note-delete" onClick={() => this.props.delete(this.props.id)} type="button">Delete</button>
-          <button className="note-edit" onClick={this.toggleEditing} type="button">Save</button>
+          <button className="note-delete" onClick={() => this.props.delete(this.props.id)} type="button"> <i className="fa fa-trash" /></button>
+          <button className="note-edit" onClick={this.toggleEditing} type="button"> <i className="fa fa-save" /></button>
           {/* eslint-disable-next-line react/no-danger */}
-          <textarea className="noteBody" type="text" onChange={this.editContent} value={this.props.note.text} />
+          <textarea className="note-body" type="text" onChange={this.editContent} value={this.props.note.text} />
         </div>
 
       );

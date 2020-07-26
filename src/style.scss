@@ -1,44 +1,85 @@
+@keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+} 
+
 body, html {
     font-family: "Merriweather", sans-serif;
     margin:0px;
     height: 100%;
+    opacity: 1;
+    animation: 2s ease-in 0s 1 fadeIn;
   }
+
 button{
   font-family: "Merriweather", sans-serif;
 }
 h1,h2,h3,h4,h5,p{
   margin:0px;
+  display: inline;
 }
 .note{
-  border-style: dotted;
-  background-color: rgb(135, 216, 208);
+  background-color: rgb(102, 255, 240);
+  width: 400px;
+  height:400px;
+  padding:20px;
+  border-radius: 2px;
+  box-shadow: 4px 4px 2px 1px  rgba(82, 206, 193, 0.3);
+  margin:50px;
+  border-style: solid;
+  border-color:rgba(82, 206, 193, 0.3);
+  animation: .2s ease-in 0s 1 expand;
+
 }
-.noteBody{
+//Took the answer for css transistions on load
+//https://stackoverflow.com/questions/6805482/css3-transition-animation-on-load
+@keyframes expand {
+  0% {
+    transform: scale(.1,.1);
+  }
+  100% {
+    transform: scale(1,1);
+  }
+}
+
+.note-body{
   font-size: 12pt;
   font-family: "Merriweather", sans-serif;
-  border-style: dotted;
-  width: 90%;
-  min-height: 300px;
-  display: block;
-  margin: auto;
+  width: 97%;
+  height: 85%;
+  margin-top: 20px;
 
 }.note-title{
+  max-width: 70%;
   font-family: "Merriweather", sans-serif;
   font-size: 20pt;
+  width: 80%;
 }
+.note-edit{
+  border-style: outset;
+  font-size: 20pt;
+  position: absolute;
+  right: 30px;
+  width:40px
+}
+.note-delete{
+  border-style: outset;
+  font-size: 20pt;
+  position: absolute;
+  right: 80px;
+}
+
 
 .react-draggable{
   position: absolute;
-  border-style: dotted;
-  max-width: 30em;
-  min-width: 20em;
-
 }
+
 #add-bar{
   background-color: turquoise;
   padding:20px;
   display: flex;
   justify-content: center;
+  align-items:center;
 }
 #add-text{
   margin:10px;
@@ -49,4 +90,11 @@ h1,h2,h3,h4,h5,p{
 #add-button{
   margin:10px;
 
+}
+#add-text{
+  height: 50%;
+  font-size: 20pt;
+}
+.greeting{
+  margin-right: 30px;
 }

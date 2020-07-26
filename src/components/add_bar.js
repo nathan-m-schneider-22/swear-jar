@@ -9,14 +9,29 @@ class AddBar extends Component {
 
   // eslint-disable-next-line class-methods-use-this
   onInputChange = (event) => {
+    console.log(event.target);
     this.setState({ newtext: event.target.value });
   }
 
+  submit = (event) => {
+    const text = this.state.newtext;
+    this.setState({ newtext: '' });
+
+    this.props.handleClick(text);
+  }
+
+  handleKey = (event) => {
+    console.log(event.key);
+    if (event.key === 'Enter') this.submit();
+  }
+
   render() {
+    const greeting = 'What\'s on your mind?';
     return (
       <div id="add-bar">
-        <input id="add-text" onChange={this.onInputChange} value={this.state.newtext} />
-        <button id="add-button" type="button" onClick={() => this.props.handleClick(this.state.newtext)}> Add Note </button>
+        <h3 className="greeting">{greeting}</h3>
+        <input id="add-text" onChange={this.onInputChange} onKeyPress={this.handleKey} value={this.state.newtext} />
+        <button id="add-button" type="button" onClick={this.submit}> Add Note </button>
       </div>
     );
   }
