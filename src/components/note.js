@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Draggable from 'react-draggable'; // The default
 import marked from 'marked';
+import * as xss from 'xss';
 // import TextareaAutosize from 'react-textarea-autosize';
 
 class Note extends Component {
@@ -32,6 +33,11 @@ class Note extends Component {
 
   renderEditing = () => {
     if (!this.state.isEditing) {
+      // dangerouslySetInnerHTML puts the site at risk from XSS attacks
+      // The XSS library allows me sanitze your inputs to prevent people from emedding
+      // dangerous code in my site!
+      const dirty = this.props.note.text;
+      const cleaned = xss.filterXSS(dirty);
       return (
         <div className="note">
           <h1 className="note-title">{this.props.note.title}</h1>
@@ -39,7 +45,7 @@ class Note extends Component {
           <button className="note-delete" onClick={() => this.props.delete(this.props.id)} type="button"> <i className="fa fa-trash" /></button>
           <button className="note-edit" onClick={this.toggleEditing} type="button"> <i className="fa fa-edit" /> </button>
           {/* eslint-disable-next-line react/no-danger */}
-          <div className="note-body" dangerouslySetInnerHTML={{ __html: marked(this.props.note.text || '') }} />
+          <div className="note-body" dangerouslySetInnerHTML={{ __html: marked(cleaned || '') }} />
         </div>
       );
     } else {
