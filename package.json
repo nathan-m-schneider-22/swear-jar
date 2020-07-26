@@ -52,6 +52,7 @@
     "react-draggable": "^4.4.3",
     "react-router": "^5.2.0",
     "react-textarea-autosize": "^8.2.0",
+    "react-transition-group": "1.x",
     "xss": "^1.0.7"
   }
 }

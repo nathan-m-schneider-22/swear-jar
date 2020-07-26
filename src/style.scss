@@ -3,12 +3,15 @@
   100% {opacity: 1;}
 } 
 
+.note-space{
+  opacity: 1;
+  animation: 2s ease-in 0s 1 fadeIn;
+
+}
 body, html {
     font-family: "Merriweather", sans-serif;
     margin:0px;
     height: 100%;
-    opacity: 1;
-    animation: 2s ease-in 0s 1 fadeIn;
   }
 
 button{
@@ -31,16 +34,7 @@ h1,h2,h3,h4,h5,p{
   animation: .2s ease-in 0s 1 expand;
 
 }
-//Took the answer for css transistions on load
-//https://stackoverflow.com/questions/6805482/css3-transition-animation-on-load
-@keyframes expand {
-  0% {
-    transform: scale(.1,.1);
-  }
-  100% {
-    transform: scale(1,1);
-  }
-}
+
 
 .note-body{
   font-size: 12pt;
@@ -54,6 +48,11 @@ h1,h2,h3,h4,h5,p{
   font-family: "Merriweather", sans-serif;
   font-size: 20pt;
   width: 80%;
+}
+
+.note button{
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.637);
 }
 .note-edit{
   border-style: outset;
@@ -69,6 +68,9 @@ h1,h2,h3,h4,h5,p{
   right: 80px;
 }
 
+.note-animation-enter{
+  opacity: 0.01;
+}
 
 .react-draggable{
   position: absolute;
@@ -85,6 +87,7 @@ h1,h2,h3,h4,h5,p{
   margin:10px;
   width: 200px;
   height:50%;
+  background-color: rgb(212, 255, 251);
 
 }
 #add-button{
@@ -97,4 +100,25 @@ h1,h2,h3,h4,h5,p{
 }
 .greeting{
   margin-right: 30px;
+}
+.category-bar{
+  height:35px;
+  border-style: solid;
+  background:turquoise;
+  border-color: white;
+  border-width: 5px;
+  margin-bottom:40px;
+  display: flex;
+  align-items: stretch;
+}
+.category-bar button{
+  height:100%;
+  margin: 0;
+  width: 100%;
+  border-style: none;
+  font-size: 20pt;
+  background-color: rgba(255, 255, 255, 0);
+}
+.category-bar button:hover{
+  background-color: rgba(255, 255, 255, 0.199);
 }
