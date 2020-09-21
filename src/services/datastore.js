@@ -12,24 +12,16 @@ firebase.initializeApp(config);
 // Get a reference to the database service
 const database = firebase.database();
 
-export function fetchNotes(category, callback) {
-  console.log('FETCHING ', category);
-  database.ref(`notes/${category}`).on('value', (snapshot) => {
-    const newNoteState = snapshot.val();
-    callback(newNoteState);
+export function fetchcounts(callback) {
+  console.log('FETCHING ');
+  database.ref('counts').on('value', (snapshot) => {
+    const newcountState = snapshot.val();
+    callback(newcountState);
   });
-  // do something here
-  // callback() when done
 }
-export function addNote(category, newNote) {
-  firebase.database().ref(`notes/${category}`).push(newNote);
+export function addcount(newcount) {
+  firebase.database().ref('counts').push(newcount);
 }
-export function deleteNote(category, id) {
-  firebase.database().ref(`notes/${category}`).child(id).remove();
-}
-export function pushChanges(category, id, note) {
-  firebase.database().ref(`notes/${category}`).child(id).set(note);
-}
-export function focus(category, id, zIndex) {
-  firebase.database().ref(`notes/${category}`).child(id).update({ zIndex });
+export function pushChanges(id, count) {
+  firebase.database().ref('counts').child(id).set(count);
 }

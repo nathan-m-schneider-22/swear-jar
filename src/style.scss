@@ -1,124 +1,47 @@
-@keyframes fadeIn {
-  0% {opacity: 0;}
-  100% {opacity: 1;}
-} 
-
-.note-space{
-  opacity: 1;
-  animation: 2s ease-in 0s 1 fadeIn;
-
-}
-body, html {
-    font-family: "Merriweather", sans-serif;
-    margin:0px;
-    height: 100%;
-  }
-
-button{
+*{
   font-family: "Merriweather", sans-serif;
+
 }
-h1,h2,h3,h4,h5,p{
-  margin:0px;
+html{
+  background-color: rgb(255, 215, 215);
+}
+.title{
+  text-align: center;
+}
+.counter-container{
+  background-color: rgb(255, 161, 161);
+  display: flex;
+  justify-content: space-around;
+  border-radius: 20px;
+}
+.name{
+  margin:20px;
   display: inline;
+  font-size: 20pt;
 }
-.note{
-  background-color: rgb(102, 255, 240);
-  width: 400px;
-  height:400px;
-  padding:20px;
-  border-radius: 2px;
-  box-shadow: 4px 4px 2px 1px  rgba(82, 206, 193, 0.3);
-  margin:50px;
+
+.count{
+  display: inline;
+  margin:20px;
+  font-size: 24pt;
+}
+.increment{
+  display: block;
+  margin:20px;
+  width: 100px;
+  height:100px;
+  background-color: white;
   border-style: solid;
-  border-color:rgba(82, 206, 193, 0.3);
-  animation: .2s ease-in 0s 1 expand;
-
+  border-radius: 20px;
+  border-width: 4px;
+  font-size: 16pt;
 }
-
-
-.note-body{
-  font-size: 12pt;
-  font-family: "Merriweather", sans-serif;
-  width: 97%;
-  height: 85%;
-  margin-top: 20px;
-
-}.note-title{
-  max-width: 70%;
-  font-family: "Merriweather", sans-serif;
-  font-size: 20pt;
-  width: 80%;
-}
-
-.note button{
-  border-radius: 5px;
-  background-color: rgba(255, 255, 255, 0.637);
-}
-.note-edit{
-  border-style: outset;
-  font-size: 20pt;
-  position: absolute;
-  right: 30px;
-  width:40px
-}
-.note-delete{
-  border-style: outset;
-  font-size: 20pt;
-  position: absolute;
-  right: 80px;
-}
-
-.note-animation-enter{
-  opacity: 0.01;
-}
-
-.react-draggable{
-  position: absolute;
-}
-
-#add-bar{
-  background-color: turquoise;
-  padding:20px;
+.button-container{
   display: flex;
-  justify-content: center;
-  align-items:center;
+  justify-content: space-around;
 }
-#add-text{
-  margin:10px;
-  width: 200px;
-  height:50%;
-  background-color: rgb(212, 255, 251);
-
-}
-#add-button{
-  margin:10px;
-
-}
-#add-text{
-  height: 50%;
-  font-size: 20pt;
-}
-.greeting{
-  margin-right: 30px;
-}
-.category-bar{
-  height:35px;
-  border-style: solid;
-  background:turquoise;
-  border-color: white;
-  border-width: 5px;
-  margin-bottom:40px;
-  display: flex;
-  align-items: stretch;
-}
-.category-bar button{
-  height:100%;
-  margin: 0;
-  width: 100%;
-  border-style: none;
-  font-size: 20pt;
-  background-color: rgba(255, 255, 255, 0);
-}
-.category-bar button:hover{
-  background-color: rgba(255, 255, 255, 0.199);
+.name-container{
+  background-color: rgb(255, 161, 161);
+  margin-top: 50px;
+  border-radius: 20px;
 }
